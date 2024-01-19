@@ -3,12 +3,29 @@ import react from "react";
 import MainScreen from "./MainScreen";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import notes from "../Data/notes.js";
+
 import "./MyNotes.css";
 import Accordion from 'react-bootstrap/Accordion';
-
+import {useEffect} from "react";
+import {useState} from "react"
+import axios from "axios";
 
 function MyNotes(){
+
+    const [notes, setNotes]= useState([])
+
+    const fetchNotes = async () =>{
+        console.log("fetch")
+        const {data} = await axios.get('/api/notes')
+        setNotes(data);
+        console.log(notes)
+    }
+
+    useEffect(()=>{
+        fetchNotes();
+       
+
+    }, [])
 
     function child1(){
 
