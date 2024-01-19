@@ -11,7 +11,7 @@ function MyNotes(){
 
             <div>
                 <h1 className = "heading">
-                    yoyoyo
+                    yoyoyoyo
                 </h1>
             </div>
         );
