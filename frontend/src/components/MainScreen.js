@@ -1,6 +1,7 @@
 import { Container, Row } from "react-bootstrap";
 import "./MainScreen.css";
 
+
 function MainScreen(props){
     const title = props.title;
     const child = props.child;
@@ -14,7 +15,7 @@ function MainScreen(props){
                        
                         <h1 className = "heading">{title}</h1>
                         <hr/>
-                        <div>
+                    <div>
                     {child}
                     </div>
                     </div>

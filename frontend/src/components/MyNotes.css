@@ -1,0 +1,27 @@
+.rows{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    }
+
+.newNote{
+
+    padding: 10px;
+    display: flex;
+    
+    
+}
+.hide{
+    
+    --bs-accordion-btn-bg: #ffc40c;
+    --bs-accordion-active-bg:#db8b00;
+
+    --bs-accordion-inner-border-radius:7px;
+    --bs-accordion-bg: #ffc40c;
+    --bs-accordion-color: #ffc40c;
+    --bs-accordion-border-width: 0;
+    --bs-accordion-btn-border-width: 0;
+    --bs-accordion-btn-focus-box-shadow:none;
+    
+}
