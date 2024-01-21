@@ -2,7 +2,17 @@ import {Container, Row, Button} from "react-bootstrap";
 import "./Landingpage.css"
 
 
-const Landingpage = () =>{
+const Landingpage = ({history}) =>{
+
+   /*  useEffect(()=>{
+        const userInfo = localStorage.getItem("userInfo");
+
+        if (userInfo){
+            history.push("/mynotes");
+        }
+
+
+    }, [histroy]) */
 
     return(
       
@@ -20,7 +30,7 @@ const Landingpage = () =>{
                                     Login
                                 </Button>
                             </a>
-                            <a href = "/signup">
+                            <a href = "/register">
                                 <Button size="lg" variant="outline-primary" className= "landingButton">
                                     Sign up
                                 </Button>

@@ -5,10 +5,14 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import "./nav.css"
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 
-function NavScroll() {
+
+
+function NavScroll(props) {
+  const history = useNavigate();
+  const name = props.name;
   return (
     <Navbar expand="lg" className="brown">
       <Container fluid >
@@ -26,15 +30,18 @@ function NavScroll() {
               
               <Link to="/mynotes">My Notes</Link>
               </Nav.Link>
-            <Nav.Link href="#action2">Info</Nav.Link>
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
+    
+            <NavDropdown title={name} id="navbarScrollingDropdown">
+              <NavDropdown.Item onClick ={()=>{
+                localStorage.removeItem("userInfo");
+                history("/");
+              }}>Logout</NavDropdown.Item>
+             {/*  <NavDropdown.Item href="#action4">
                 Another action
               </NavDropdown.Item>
-              <NavDropdown.Divider />
+              <NavDropdown.Divider /> */}
               <NavDropdown.Item href="#action5">
-                Something else here
+                Settings
               </NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="#" disabled>

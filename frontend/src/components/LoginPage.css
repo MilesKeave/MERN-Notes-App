@@ -1,0 +1,11 @@
+.width-controll{
+    
+    align-items:center;
+    justify-content:center;
+}
+.center{
+    display:inline-block;
+    
+    align-items:center;
+    justify-content:center;
+}
