@@ -1,12 +1,15 @@
 import "./LoginPage.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MainScreen from "./MainScreen";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ErrorMessage from "./ErrorMessage";
 import axios from "axios";
 import Loading from "./Loader";
+import { useDispatch } from "react-redux";
+import { register } from "../actions/userActions";
+import { useSelector } from "react-redux";
 
 function RegisterPage(){
 
@@ -17,13 +20,43 @@ function RegisterPage(){
     const [confirmPassword, setConfirmPassword] = useState("");
     const [message, setMessage] = useState(null);
     const [picMessage, setPicMessage] = useState(null);
-    const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(false);
+   /*  const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(false); */
+
+    const dispatch = useDispatch();
+    const history = useNavigate();
+
+    const userRegister = useSelector((state)=> state.userRegister);
+    //if error try userLogin instead of userRegister
+
+    const {loading, userInfo, error} = userRegister;
+
+    useEffect(()=>{
+
+        console.log(userInfo)
+
+        if (userInfo != null){
+            console.log(userInfo)
+            history("/mynotes");
+        }
+    }, [userInfo, history])
+
+
+
 
     const submitHandler = async (e) => {
         e.preventDefault();
 
         if (password !== confirmPassword){
+            setMessage("Passwords do not match");
+        }
+        else{
+
+            dispatch(register(name, email, password, pic));
+        }
+
+
+        /* if (password !== confirmPassword){
             setMessage("Passwords do not match");
         }
         else{
@@ -50,7 +83,7 @@ function RegisterPage(){
 
         }
         console.log(email);
-        setLoading(false);
+        setLoading(false); */
     }
 
     const postDetails =(pics)=>{

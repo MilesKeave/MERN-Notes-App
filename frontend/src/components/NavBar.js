@@ -6,12 +6,25 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import "./nav.css"
 import {Link, useNavigate} from "react-router-dom";
-
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../actions/userActions';
 
 
 
 function NavScroll(props) {
+  
   const history = useNavigate();
+  const dispatch =useDispatch();
+  const userLogin = useSelector(state=> state.userLogin);
+
+  const {userInfo} = userLogin;
+
+  function logoutHandler (){
+
+    dispatch(logout());
+    history("/");
+  }
+
   const name = props.name;
   return (
     <Navbar expand="lg" className="brown">
@@ -32,10 +45,8 @@ function NavScroll(props) {
               </Nav.Link>
     
             <NavDropdown title={name} id="navbarScrollingDropdown">
-              <NavDropdown.Item onClick ={()=>{
-                localStorage.removeItem("userInfo");
-                history("/");
-              }}>Logout</NavDropdown.Item>
+              <NavDropdown.Item onClick ={logoutHandler
+              }>Logout</NavDropdown.Item>
              {/*  <NavDropdown.Item href="#action4">
                 Another action
               </NavDropdown.Item>

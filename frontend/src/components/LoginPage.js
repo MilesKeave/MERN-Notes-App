@@ -4,20 +4,39 @@ import Form from 'react-bootstrap/Form';
 import "./LoginPage.css";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loading from "./Loader";
 import ErrorMessage from "./ErrorMessage";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../actions/userActions";
 
 function LoginPage(){
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(false);
+   /*  const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(false); */
+    const dispatch = useDispatch();
+   const history = useNavigate(); 
+
+    const userLogin= useSelector((state)=> state.userLogin);
+    const {loading, error, userInfo}=userLogin;
+
+    useEffect(()=>{
+
+      if(userInfo){
+        history("/mynotes")
+
+      }
+    }, [history, userInfo])
+ 
 
     const submitHandler = async (e)=>{
         e.preventDefault();
-        try{
+
+        dispatch(login(email,password));
+        /* try{
             const config={
             headers: {"Content-type":"application/json"}
             }
@@ -39,7 +58,7 @@ function LoginPage(){
             //console.log(error);
             setLoading(false);
 
-        }
+        } */
         
     }
 
