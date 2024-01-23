@@ -1,8 +1,8 @@
-const exrpess = require("express");
+const express = require("express");
 const {registerUser} = require("../controllers/userControllers.js");
 const {authUser} = require("../controllers/userControllers.js");
 
-const router = exrpess.Router();
+const router = express.Router();
 
 
 router.route("/").post(registerUser);

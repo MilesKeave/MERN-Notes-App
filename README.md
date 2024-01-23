@@ -3,9 +3,9 @@ Currently still in progress, this full-stack Notes app utilizes React.JS as the 
 The app allows users to register with their name, email, password, and profile pic. It authorizes the user when they log in using their email and password (which is encrypted).
 Once logged in users have access to all their previously made notes. Additionally, they can add, edit, or delete notes as well.
 
-Other tools and libraries utilized are Bootstrap, React-router-dom, Axios, bcryptjs, and more.
+Other tools and libraries utilized are Bootstrap, React-router-dom, Redux, Axios, bcryptjs, and more.
 
-Instructions on how to start the project will be released once it is fully completed (within the next few days most likely by Jan 22/2024)
+Instructions on how to start the project will be released once it is fully completed (within the next few days most likely by Jan 25/2024)
 
 Here are some screenshots of how it currently looks. This is a rough draft and more changes are coming.
 
