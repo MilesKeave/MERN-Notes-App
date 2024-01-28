@@ -5,7 +5,7 @@ Once logged in users have access to all their previously made notes. Additionall
 
 Other tools and libraries utilized are Bootstrap, React-router-dom, Redux, Axios, bcryptjs, and more.
 
-Instructions on how to start the project will be released once it is fully completed (within the next few days most likely by Jan 25/2024)
+Instructions on how to start the project will be released once it is fully completed
 
 Here are some screenshots of how it currently looks. This is a rough draft and more changes are coming.
 
